@@ -2,11 +2,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 
 def test_dynamic_controls():
 
-    chrome = webdriver.Chrome('./chromedriver')
+    chrome = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     chrome.implicitly_wait(5)
 
     try:
